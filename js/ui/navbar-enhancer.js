@@ -76,12 +76,12 @@ const navbarEnhancer = {
         logo.src = 'https://siakad.polinema.ac.id/assets/admin/layout/img/header2.png';
         logo.alt = 'SIAKAD Polinema';
         
-        const brandText = utils.createEl('div', 'brand-text');
-        brandText.appendChild(utils.createEl('div', 'brand-title', 'SIAKAD'));
-        brandText.appendChild(utils.createEl('div', 'brand-subtitle', 'Polinema'));
+        // const brandText = utils.createEl('div', 'brand-text');
+        // brandText.appendChild(utils.createEl('div', 'brand-title', 'SIAKAD'));
+        // brandText.appendChild(utils.createEl('div', 'brand-subtitle', 'Polinema'));
         
         logoContainer.appendChild(logo);
-        logoContainer.appendChild(brandText);
+        // logoContainer.appendChild(brandText);
         section.appendChild(logoContainer);
         
         return section;

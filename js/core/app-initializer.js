@@ -121,6 +121,11 @@
     const initUIEnhancements = () => {
         if (window.location.href.includes('siakad.polinema.ac.id')) {
 
+            // Initialize accessibility and performance enhancements first
+            if (typeof initializeEnhancements !== 'undefined') {
+                initializeEnhancements();
+            }
+
             // Initialize sidebar enhancement
             if (typeof sidebarEnhancer !== 'undefined' &&
                 typeof injectSidebarStyles !== 'undefined') {
@@ -141,6 +146,74 @@
                     contentLayoutEnhancer.init();
                 }, 1500); // Wait a bit longer for content to load
             }
+
+            // Add accessibility improvements
+            addAccessibilityEnhancements();
+        }
+    };
+
+    // Add accessibility enhancements
+    const addAccessibilityEnhancements = () => {
+        // Add skip links for keyboard navigation
+        const skipLink = document.createElement('a');
+        skipLink.href = '#main-content';
+        skipLink.textContent = 'Skip to main content';
+        skipLink.className = 'skip-link';
+        skipLink.style.cssText = `
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: var(--color-secondary-main);
+            color: var(--color-text-primary);
+            padding: 8px;
+            text-decoration: none;
+            border-radius: 4px;
+            z-index: 10000;
+            transition: top 0.3s;
+        `;
+
+        skipLink.addEventListener('focus', () => {
+            skipLink.style.top = '6px';
+        });
+
+        skipLink.addEventListener('blur', () => {
+            skipLink.style.top = '-40px';
+        });
+
+        document.body.insertBefore(skipLink, document.body.firstChild);
+
+        // Add main content landmark
+        const mainContent = document.querySelector('.page-content') || document.querySelector('#portlet-sub-page-body');
+        if (mainContent && !mainContent.id) {
+            mainContent.id = 'main-content';
+            mainContent.setAttribute('role', 'main');
+        }
+
+        // Improve focus management
+        const focusableElements = document.querySelectorAll(
+            'a[href], button, input, textarea, select, [tabindex]:not([tabindex="-1"])'
+        );
+
+        focusableElements.forEach(element => {
+            if (!element.getAttribute('aria-label') && !element.textContent.trim()) {
+                // Add aria-label for elements without accessible names
+                const ariaLabel = element.getAttribute('title') ||
+                                element.getAttribute('placeholder') ||
+                                'Interactive element';
+                element.setAttribute('aria-label', ariaLabel);
+            }
+        });
+
+        // Add ARIA landmarks to enhanced components
+        const sidebar = document.querySelector('.enhanced-sidebar');
+        if (sidebar) {
+            sidebar.setAttribute('role', 'navigation');
+            sidebar.setAttribute('aria-label', 'Main navigation');
+        }
+
+        const navbar = document.querySelector('.enhanced-navbar');
+        if (navbar) {
+            navbar.setAttribute('role', 'banner');
         }
     };
 

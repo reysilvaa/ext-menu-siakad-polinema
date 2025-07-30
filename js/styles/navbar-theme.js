@@ -1,32 +1,34 @@
-// Enhanced Navbar Styles - Universal Color Palette
+// Modern Dark Mode Navbar Styles
 const injectNavbarStyles = () => {
     const style = document.createElement('style');
     style.textContent = `
-        /* Enhanced Navbar Container - Compact Size */
+        /* Modern Dark Navbar Container */
         .enhanced-navbar {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             height: 55px;
-            background: var(--color-primary-main);
-            box-shadow: 0 2px 8px var(--color-functional-shadow);
+            background: var(--gradient-navbar);
+            box-shadow: var(--shadow-lg);
             z-index: 1001;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--color-border-primary);
         }
 
-        /* Navbar Content - Compact Padding */
+        /* Modern Navbar Content */
         .navbar-content {
             display: flex;
             align-items: center;
             justify-content: space-between;
             height: 100%;
-            padding: 0 20px;
+            padding: 0 var(--spacing-lg);
             max-width: 1400px;
             margin: 0 auto;
         }
 
-        /* Left Section - Logo */
+        /* Modern Left Section - Logo */
         .navbar-left {
             display: flex;
             align-items: center;
@@ -35,13 +37,14 @@ const injectNavbarStyles = () => {
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: var(--spacing-md);
         }
 
         .enhanced-logo {
-            height: 35px;
+            height: 32px;
             width: auto;
             object-fit: contain;
+            filter: brightness(1.1);
         }
 
         .brand-text {
@@ -51,21 +54,21 @@ const injectNavbarStyles = () => {
         }
 
         .brand-title {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 700;
-            color: var(--color-primary-contrast);
-            letter-spacing: 0.5px;
+            color: var(--color-text-primary);
+            letter-spacing: 0.3px;
         }
 
         .brand-subtitle {
-            font-size: 10px;
+            font-size: 9px;
             color: var(--color-secondary-main);
-            font-weight: 500;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.2px;
         }
 
-        /* Center Section - Quick Actions */
+        /* Modern Center Section - Quick Actions */
         .navbar-center {
             display: flex;
             align-items: center;
@@ -73,98 +76,100 @@ const injectNavbarStyles = () => {
 
         .quick-actions {
             display: flex;
-            gap: 15px;
+            gap: var(--spacing-sm);
         }
 
         .quick-action-btn {
             position: relative;
-            background: transparent;
-            border: 1px solid var(--color-secondary-main);
-            color: var(--color-secondary-main);
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
+            background: var(--alpha-white-10);
+            border: 1px solid var(--color-border-primary);
+            color: var(--color-text-secondary);
+            width: 36px;
+            height: 36px;
+            border-radius: var(--radius-lg);
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 14px;
-            opacity: 0.8;
+            backdrop-filter: blur(8px);
         }
 
         .quick-action-btn:hover {
             background: var(--color-secondary-main);
-            color: var(--color-secondary-contrast);
+            color: var(--color-text-primary);
             border-color: var(--color-secondary-main);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px var(--color-secondary-main);
-            opacity: 1;
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-glow);
         }
 
         .action-badge {
             position: absolute;
-            top: -5px;
-            right: -5px;
-            background: #3498db;
-            color: white;
-            font-size: 10px;
-            font-weight: 600;
-            padding: 2px 6px;
-            border-radius: 10px;
-            min-width: 18px;
+            top: -4px;
+            right: -4px;
+            background: var(--color-status-error);
+            color: var(--color-text-primary);
+            font-size: 9px;
+            font-weight: 700;
+            padding: 2px 5px;
+            border-radius: var(--radius-full);
+            min-width: 16px;
             text-align: center;
-            line-height: 1.2;
+            line-height: 1.1;
+            box-shadow: var(--shadow-sm);
         }
 
-        /* Right Section - User Info */
+        /* Modern Right Section - User Info */
         .navbar-right {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: var(--spacing-md);
         }
 
-        /* Messages Button */
+        /* Modern Messages Button */
         .messages-btn {
             position: relative;
-            background: transparent;
-            border: 2px solid rgba(52, 152, 219, 0.3);
-            color: #3498db;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
+            background: var(--alpha-white-10);
+            border: 1px solid var(--color-border-primary);
+            color: var(--color-text-secondary);
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-lg);
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 16px;
+            backdrop-filter: blur(8px);
         }
 
         .messages-btn:hover {
-            background: #3498db;
-            color: white;
-            border-color: #3498db;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+            background: var(--color-secondary-main);
+            color: var(--color-text-primary);
+            border-color: var(--color-secondary-main);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-glow);
         }
 
         .message-badge {
             position: absolute;
-            top: -5px;
-            right: -5px;
-            background: #3498db;
-            color: white;
-            font-size: 10px;
-            font-weight: 600;
-            padding: 2px 6px;
-            border-radius: 10px;
-            min-width: 18px;
+            top: -4px;
+            right: -4px;
+            background: var(--color-status-error);
+            color: var(--color-text-primary);
+            font-size: 9px;
+            font-weight: 700;
+            padding: 2px 5px;
+            border-radius: var(--radius-full);
+            min-width: 16px;
             text-align: center;
-            line-height: 1.2;
+            line-height: 1.1;
+            box-shadow: var(--shadow-sm);
         }
 
-        /* User Dropdown */
+        /* Modern User Dropdown */
         .user-dropdown {
             position: relative;
         }
@@ -172,26 +177,28 @@ const injectNavbarStyles = () => {
         .user-trigger {
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 8px 15px;
-            background: rgba(52, 152, 219, 0.1);
-            border: 1px solid rgba(52, 152, 219, 0.2);
-            border-radius: 25px;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-xs) var(--spacing-md);
+            background: var(--alpha-white-10);
+            border: 1px solid var(--color-border-primary);
+            border-radius: var(--radius-full);
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(8px);
         }
 
         .user-trigger:hover {
-            background: rgba(52, 152, 219, 0.2);
-            border-color: #3498db;
+            background: var(--alpha-white-15);
+            border-color: var(--color-secondary-main);
+            box-shadow: var(--shadow-md);
         }
 
         .user-image {
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            border-radius: var(--radius-full);
             object-fit: cover;
-            border: 2px solid #3498db;
+            border: 2px solid var(--color-secondary-main);
         }
 
         .user-info {
@@ -201,38 +208,39 @@ const injectNavbarStyles = () => {
         }
 
         .user-name {
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
-            color: white;
+            color: var(--color-text-primary);
         }
 
         .user-id {
-            font-size: 11px;
-            color: #3498db;
+            font-size: 10px;
+            color: var(--color-text-tertiary);
             font-weight: 500;
         }
 
         .dropdown-icon {
-            color: #3498db;
-            font-size: 12px;
+            color: var(--color-text-tertiary);
+            font-size: 10px;
             transition: transform 0.3s ease;
         }
 
-        /* Dropdown Menu */
+        /* Modern Dropdown Menu */
         .dropdown-menu {
             position: absolute;
             top: 100%;
             right: 0;
-            background: white;
-            border: 1px solid rgba(52, 152, 219, 0.2);
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(44, 62, 80, 0.15);
+            background: var(--color-surface-primary);
+            border: 1px solid var(--color-border-primary);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
             min-width: 180px;
             opacity: 0;
             visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
-            margin-top: 10px;
+            transform: translateY(-8px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-top: var(--spacing-sm);
+            backdrop-filter: blur(12px);
         }
 
         .dropdown-menu.show {
@@ -242,20 +250,20 @@ const injectNavbarStyles = () => {
         }
 
         .dropdown-item {
-            padding: 12px 20px;
-            color: #2c3e50;
+            padding: var(--spacing-sm) var(--spacing-md);
+            color: var(--color-text-secondary);
             cursor: pointer;
             transition: all 0.2s ease;
-            border-bottom: 1px solid rgba(52, 152, 219, 0.1);
+            border-bottom: 1px solid var(--color-border-subtle);
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 14px;
+            gap: var(--spacing-sm);
+            font-size: 13px;
         }
 
         .dropdown-item:hover {
-            background: rgba(52, 152, 219, 0.1);
-            color: #3498db;
+            background: var(--alpha-secondary-10);
+            color: var(--color-text-primary);
         }
 
         .dropdown-item:last-child {
@@ -265,29 +273,32 @@ const injectNavbarStyles = () => {
         .dropdown-item i {
             width: 16px;
             text-align: center;
+            color: var(--color-secondary-main);
         }
 
-        /* Toggle Button */
+        /* Modern Toggle Button */
         .navbar-toggle-btn {
             position: absolute;
             top: 50%;
-            right: -50px;
+            right: -45px;
             transform: translateY(-50%);
-            background: #3498db;
-            color: white;
+            background: var(--color-secondary-main);
+            color: var(--color-text-primary);
             border: none;
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            border-radius: var(--radius-lg);
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 14px;
-            box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 12px;
+            box-shadow: var(--shadow-lg);
+            backdrop-filter: blur(8px);
         }
 
         .navbar-toggle-btn:hover {
-            background: #2980b9;
-            transform: translateY(-50%) scale(1.1);
+            background: var(--color-hover-secondary);
+            transform: translateY(-50%) scale(1.05);
+            box-shadow: var(--shadow-glow);
         }
 
         /* Responsive Design - Compact */
@@ -354,15 +365,17 @@ const injectNavbarStyles = () => {
             animation: slideInDown 0.5s ease forwards;
         }
 
-        /* Adjust layout for compact navbar and sidebar */
+        /* Modern Layout Adjustments */
         body {
             padding-top: 55px !important;
+            background: var(--color-functional-background) !important;
         }
 
-        /* Adjust main content area for compact sidebar */
+        /* Modern Main Content Layout */
         .page-container {
             margin-left: 240px !important;
             padding-top: 0 !important;
+            transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .page-content-wrapper {
@@ -371,72 +384,231 @@ const injectNavbarStyles = () => {
 
         .page-content {
             margin-left: 0 !important;
-            padding: 20px !important;
+            padding: var(--spacing-lg) !important;
+            background: var(--color-functional-background);
         }
 
-        /* Adjust portlet containers */
+        /* Modern Card Containers */
         .portlet {
-            margin-bottom: 20px;
-            background: var(--color-functional-surface);
-            border: 1px solid var(--color-functional-border);
-            border-radius: 8px;
-            box-shadow: 0 2px 8px var(--color-functional-shadow);
+            margin-bottom: var(--spacing-lg);
+            background: var(--color-surface-primary);
+            border: 1px solid var(--color-border-primary);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+        }
+
+        .portlet:hover {
+            box-shadow: var(--shadow-xl);
+            transform: translateY(-1px);
         }
 
         .portlet-title {
-            background: var(--gradient-primary);
-            color: var(--color-primary-contrast);
-            padding: 15px 20px;
-            border-radius: 8px 8px 0 0;
-            border-bottom: none;
+            background: var(--gradient-surface);
+            color: var(--color-text-primary);
+            padding: var(--spacing-md) var(--spacing-lg);
+            border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+            border-bottom: 1px solid var(--color-border-primary);
         }
 
         .portlet-title .caption {
-            color: var(--color-primary-contrast) !important;
+            color: var(--color-text-primary) !important;
             font-weight: 600;
-            font-size: 16px;
+            font-size: 15px;
         }
 
         .portlet-body {
-            padding: 20px;
+            padding: var(--spacing-lg);
+            background: var(--color-surface-primary);
         }
 
-        /* Table styling */
-        .table {
-            background: var(--color-functional-surface);
-            border-radius: 6px;
+        /* Modern Table Styling - Comprehensive */
+        .table, .table_data, table {
+            background: var(--color-surface-primary) !important;
+            border-radius: var(--radius-lg);
             overflow: hidden;
-            box-shadow: 0 1px 3px var(--color-functional-shadow);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--color-border-primary) !important;
         }
 
-        .table thead th {
-            background: var(--color-primary-light);
-            color: var(--color-primary-contrast);
-            border: none;
-            padding: 12px 15px;
+        .table thead th, .table_data thead th, table thead th {
+            background: var(--color-surface-secondary) !important;
+            color: var(--color-text-primary) !important;
+            border: none !important;
+            padding: var(--spacing-md) !important;
             font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .table tbody td {
-            padding: 12px 15px;
-            border-bottom: 1px solid var(--color-functional-border);
+        .table tbody td, .table_data tbody td, table tbody td {
+            background: var(--color-surface-primary) !important;
+            color: var(--color-text-secondary) !important;
+            padding: var(--spacing-md) !important;
+            border-bottom: 1px solid var(--color-border-subtle) !important;
+            border-left: none !important;
+            border-right: none !important;
+            border-top: none !important;
             vertical-align: middle;
         }
 
-        .table tbody tr:hover {
-            background: var(--color-neutral-light);
+        .table tbody tr, .table_data tbody tr, table tbody tr {
+            background: var(--color-surface-primary) !important;
+        }
+
+        .table tbody tr:hover, .table_data tbody tr:hover, table tbody tr:hover {
+            background: var(--alpha-secondary-5) !important;
+        }
+
+        .table tbody tr:nth-child(even), .table_data tbody tr:nth-child(even), table tbody tr:nth-child(even) {
+            background: var(--color-surface-secondary) !important;
+        }
+
+        .table tbody tr:nth-child(even):hover, .table_data tbody tr:nth-child(even):hover, table tbody tr:nth-child(even):hover {
+            background: var(--alpha-secondary-10) !important;
+        }
+
+        /* Status badges in tables */
+        .table tbody td:last-child, .table_data tbody td:last-child, table tbody td:last-child {
+            font-weight: 600;
+        }
+
+        /* Ensure all text in tables is visible */
+        .table *, .table_data *, table * {
+            color: var(--color-text-secondary) !important;
+        }
+
+        .table thead *, .table_data thead *, table thead * {
+            color: var(--color-text-primary) !important;
         }
 
         .clickable-row {
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .clickable-row:hover {
-            background: var(--color-secondary-main) !important;
-            color: var(--color-secondary-contrast) !important;
+            background: var(--alpha-secondary-10) !important;
+            color: var(--color-text-primary) !important;
             transform: translateY(-1px);
-            box-shadow: 0 2px 8px var(--color-functional-shadow);
+            box-shadow: var(--shadow-md);
+        }
+
+        .clickable-row:hover * {
+            color: var(--color-text-primary) !important;
+        }
+
+        /* Comprehensive Dark Mode for All Page Elements */
+
+        /* Page content background */
+        .page-content, #portlet-sub-page-body, .portlet-body {
+            background: var(--color-functional-background) !important;
+            color: var(--color-text-secondary) !important;
+        }
+
+        /* All text elements */
+        .page-content *, #portlet-sub-page-body *, .portlet-body * {
+            color: var(--color-text-secondary) !important;
+        }
+
+        /* Headings */
+        .page-title, h1, h2, h3, h4, h5, h6 {
+            color: var(--color-text-primary) !important;
+        }
+
+        /* Breadcrumbs */
+        .page-breadcrumb, .breadcrumb {
+            background: transparent !important;
+        }
+
+        .page-breadcrumb li, .breadcrumb li {
+            color: var(--color-text-tertiary) !important;
+        }
+
+        .page-breadcrumb a, .breadcrumb a {
+            color: var(--color-secondary-main) !important;
+        }
+
+        /* Forms */
+        input, textarea, select {
+            background: var(--color-surface-primary) !important;
+            color: var(--color-text-primary) !important;
+            border: 1px solid var(--color-border-primary) !important;
+            border-radius: var(--radius-md) !important;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            border-color: var(--color-secondary-main) !important;
+            box-shadow: var(--color-focus-ring) !important;
+        }
+
+        /* Buttons */
+        .btn, button {
+            background: var(--color-secondary-main) !important;
+            color: var(--color-text-primary) !important;
+            border: 1px solid var(--color-secondary-main) !important;
+            border-radius: var(--radius-lg) !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .btn:hover, button:hover {
+            background: var(--color-hover-secondary) !important;
+            transform: translateY(-1px) !important;
+        }
+
+        /* Alerts */
+        .alert {
+            background: var(--color-surface-secondary) !important;
+            color: var(--color-text-primary) !important;
+            border: 1px solid var(--color-border-primary) !important;
+            border-radius: var(--radius-lg) !important;
+        }
+
+        .alert-info {
+            background: var(--alpha-secondary-10) !important;
+            border-color: var(--color-secondary-main) !important;
+        }
+
+        .alert-danger {
+            background: var(--alpha-background-10) !important;
+            border-color: var(--color-status-error) !important;
+        }
+
+        .alert-success {
+            background: var(--alpha-background-10) !important;
+            border-color: var(--color-status-success) !important;
+        }
+
+        /* Labels and small text */
+        label, .label, small, .small {
+            color: var(--color-text-tertiary) !important;
+        }
+
+        /* Links */
+        a {
+            color: var(--color-secondary-main) !important;
+        }
+
+        a:hover {
+            color: var(--color-hover-secondary) !important;
+        }
+
+        /* Dividers */
+        hr {
+            border-color: var(--color-border-primary) !important;
+        }
+
+        /* Status text styling */
+        td:contains("LUNAS"), span:contains("LUNAS") {
+            color: var(--color-status-success) !important;
+            font-weight: 600 !important;
+        }
+
+        td:contains("BELUM LUNAS"), span:contains("BELUM LUNAS") {
+            color: var(--color-status-error) !important;
+            font-weight: 600 !important;
         }
 
         /* Hide original navbar when enhanced is active */

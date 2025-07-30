@@ -1,71 +1,73 @@
-// Enhanced Sidebar Styles
+// Modern Dark Mode Sidebar Styles
 const injectSidebarStyles = () => {
     const style = document.createElement('style');
     style.textContent = `
-        /* Enhanced Sidebar Container - Scrollable Sidebar */
+        /* Modern Dark Sidebar Container */
         .enhanced-sidebar {
             width: 240px;
-            background: linear-gradient(145deg, var(--color-primary-main) 0%, var(--color-primary-light) 50%, var(--color-secondary-dark) 100%);
+            background: var(--gradient-sidebar);
             height: calc(100vh - 55px);
-            padding: 20px 16px 16px 16px;
-            box-shadow: 4px 0 20px var(--color-functional-shadow);
+            padding: var(--spacing-lg) var(--spacing-md);
+            box-shadow: var(--shadow-xl);
             position: fixed;
             left: 0;
             top: 55px;
             z-index: 1000;
             overflow-y: auto;
             overflow-x: hidden;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            backdrop-filter: blur(10px);
-            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            backdrop-filter: blur(20px);
+            border-right: 1px solid var(--color-border-primary);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Section Titles - Modern Typography */
+        /* Modern Section Titles */
         .enhanced-sidebar .section-title {
-            color: rgba(255, 255, 255, 0.95);
-            font-size: 13px;
+            color: var(--color-text-primary);
+            font-size: 11px;
             font-weight: 700;
-            margin: 0 0 16px 0;
-            padding: 8px 12px 8px 0;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+            margin: 0 0 var(--spacing-md) 0;
+            padding: var(--spacing-sm) 0;
+            border-bottom: 1px solid var(--color-border-subtle);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             position: relative;
             display: flex;
             align-items: center;
+            opacity: 0.9;
         }
 
         .enhanced-sidebar .section-title::before {
             content: '';
-            width: 4px;
-            height: 16px;
+            width: 3px;
+            height: 12px;
             background: var(--color-secondary-main);
-            border-radius: 2px;
-            margin-right: 8px;
-            box-shadow: 0 0 8px rgba(52, 152, 219, 0.4);
+            border-radius: var(--radius-sm);
+            margin-right: var(--spacing-sm);
+            box-shadow: var(--shadow-glow);
         }
 
-        /* Quick Access Section - Modern Cards */
+        /* Modern Quick Access Section */
         .quick-access-section {
-            margin-bottom: 24px;
+            margin-bottom: var(--spacing-lg);
         }
 
         .quick-access-grid {
             display: grid;
-            gap: 10px;
+            gap: var(--spacing-sm);
         }
 
         .quick-access-card {
-            background: rgba(255, 255, 255, 0.98);
-            border-radius: 12px;
-            padding: 14px 12px;
+            background: var(--color-surface-primary);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-md);
             display: flex;
             align-items: center;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(8px);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--color-border-primary);
+            backdrop-filter: blur(12px);
             position: relative;
             overflow: hidden;
         }
@@ -77,16 +79,16 @@ const injectSidebarStyles = () => {
             left: 0;
             right: 0;
             height: 2px;
-            background: linear-gradient(90deg, transparent, var(--color-secondary-main), transparent);
+            background: var(--gradient-secondary);
             opacity: 0;
             transition: opacity 0.3s ease;
         }
 
         .quick-access-card:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-            background: rgba(255, 255, 255, 1);
-            border-color: rgba(52, 152, 219, 0.3);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            background: var(--color-surface-secondary);
+            border-color: var(--color-secondary-main);
         }
 
         .quick-access-card:hover::before {
@@ -94,21 +96,22 @@ const injectSidebarStyles = () => {
         }
 
         .quick-access-card:active {
-            transform: translateY(-1px) scale(1.01);
+            transform: translateY(-1px);
         }
 
         .quick-icon {
-            font-size: 20px;
-            margin-right: 12px;
-            width: 24px;
+            font-size: 18px;
+            margin-right: var(--spacing-md);
+            width: 20px;
             text-align: center;
             transition: all 0.3s ease;
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+            color: var(--color-secondary-main);
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
         }
 
         .quick-access-card:hover .quick-icon {
             transform: scale(1.1);
-            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+            filter: drop-shadow(0 4px 8px rgba(59, 130, 246, 0.4));
         }
 
         .card-content {
@@ -117,11 +120,11 @@ const injectSidebarStyles = () => {
         }
 
         .card-title {
-            font-weight: 700;
-            color: var(--color-primary-main);
-            margin-bottom: 3px;
+            font-weight: 600;
+            color: var(--color-text-primary);
+            margin-bottom: 2px;
             font-size: 13px;
-            line-height: 1.2;
+            line-height: 1.3;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -129,18 +132,17 @@ const injectSidebarStyles = () => {
 
         .card-desc {
             font-size: 10px;
-            color: var(--color-neutral-dark);
-            line-height: 1.3;
-            opacity: 0.8;
+            color: var(--color-text-tertiary);
+            line-height: 1.4;
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
 
-        /* Search Section - Compact */
+        /* Modern Search Section */
         .search-section {
-            margin-bottom: 18px;
+            margin-bottom: var(--spacing-md);
         }
 
         .search-container {
@@ -149,45 +151,58 @@ const injectSidebarStyles = () => {
 
         .search-input {
             width: 100%;
-            padding: 8px 35px 8px 12px;
-            border: none;
-            border-radius: 20px;
-            background: rgba(255,255,255,0.9);
+            padding: var(--spacing-sm) 40px var(--spacing-sm) var(--spacing-md);
+            border: 1px solid var(--color-border-primary);
+            border-radius: var(--radius-full);
+            background: var(--color-surface-primary);
+            color: var(--color-text-primary);
             font-size: 12px;
             outline: none;
             transition: all 0.3s ease;
+            backdrop-filter: blur(8px);
+        }
+
+        .search-input::placeholder {
+            color: var(--color-text-tertiary);
         }
 
         .search-input:focus {
-            background: white;
-            box-shadow: 0 0 0 3px rgba(255,255,255,0.3);
+            background: var(--color-surface-secondary);
+            border-color: var(--color-secondary-main);
+            box-shadow: var(--color-focus-ring);
         }
 
         .search-icon {
             position: absolute;
-            right: 15px;
+            right: var(--spacing-md);
             top: 50%;
             transform: translateY(-50%);
-            color: #666;
-            font-size: 16px;
+            color: var(--color-text-tertiary);
+            font-size: 14px;
+            transition: color 0.3s ease;
         }
 
-        /* Categorized Menu */
+        .search-input:focus + .search-icon {
+            color: var(--color-secondary-main);
+        }
+
+        /* Modern Categorized Menu */
         .categorized-menu-section {
-            margin-bottom: 20px;
+            margin-bottom: var(--spacing-lg);
         }
 
         .category-card {
-            margin-bottom: 12px;
-            border-radius: 12px;
+            margin-bottom: var(--spacing-md);
+            border-radius: var(--radius-lg);
             overflow: hidden;
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
+            background: var(--alpha-white-5);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--color-border-subtle);
         }
 
         .category-header {
-            padding: 15px;
-            color: white;
+            padding: var(--spacing-md);
+            color: var(--color-text-primary);
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -195,32 +210,34 @@ const injectSidebarStyles = () => {
         }
 
         .category-header:hover {
-            background: rgba(255,255,255,0.1);
+            background: var(--alpha-white-10);
         }
 
         .category-header i:first-child {
-            margin-right: 12px;
-            font-size: 18px;
-            width: 20px;
+            margin-right: var(--spacing-md);
+            font-size: 16px;
+            width: 18px;
             text-align: center;
+            color: var(--color-secondary-main);
         }
 
         .category-name {
             flex: 1;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 13px;
         }
 
         .category-toggle {
-            font-size: 12px;
+            font-size: 10px;
             transition: transform 0.3s ease;
+            color: var(--color-text-tertiary);
         }
 
         .category-items {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease;
-            background: rgba(255,255,255,0.95);
+            background: var(--color-surface-primary);
         }
 
         .category-items.expanded {
@@ -228,46 +245,48 @@ const injectSidebarStyles = () => {
         }
 
         .category-item {
-            padding: 12px 20px;
+            padding: var(--spacing-sm) var(--spacing-lg);
             cursor: pointer;
             transition: all 0.2s ease;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            color: #333;
-            font-size: 13px;
+            border-bottom: 1px solid var(--color-border-subtle);
+            color: var(--color-text-secondary);
+            font-size: 12px;
         }
 
         .category-item:hover {
-            background: rgba(102, 126, 234, 0.1);
-            padding-left: 25px;
+            background: var(--alpha-secondary-10);
+            padding-left: calc(var(--spacing-lg) + var(--spacing-xs));
+            color: var(--color-text-primary);
         }
 
         .category-item:last-child {
             border-bottom: none;
         }
 
-        /* Recent Section - Non-scrollable, Sidebar Scrolls Instead */
+        /* Modern Recent Section */
         .recent-section {
-            margin-bottom: 16px;
+            margin-bottom: var(--spacing-md);
         }
 
         .recent-list {
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
+            background: var(--alpha-white-5);
+            border-radius: var(--radius-lg);
             overflow: visible;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--color-border-subtle);
+            backdrop-filter: blur(8px);
         }
 
         .recent-item {
-            padding: 10px 12px;
+            padding: var(--spacing-sm) var(--spacing-md);
             cursor: pointer;
             transition: all 0.3s ease;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid var(--color-border-subtle);
             position: relative;
         }
 
         .recent-item:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateX(4px);
+            background: var(--alpha-white-10);
+            transform: translateX(2px);
         }
 
         .recent-item:last-child {
@@ -275,10 +294,10 @@ const injectSidebarStyles = () => {
         }
 
         .recent-title {
-            color: rgba(255, 255, 255, 0.95);
-            font-size: 12px;
+            color: var(--color-text-primary);
+            font-size: 11px;
             font-weight: 600;
-            margin-bottom: 3px;
+            margin-bottom: 2px;
             line-height: 1.3;
             white-space: nowrap;
             overflow: hidden;
@@ -287,45 +306,45 @@ const injectSidebarStyles = () => {
         }
 
         .recent-time {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 10px;
+            color: var(--color-text-tertiary);
+            font-size: 9px;
             font-weight: 400;
         }
 
         .empty-recent {
-            padding: 24px 16px;
+            padding: var(--spacing-xl) var(--spacing-md);
             text-align: center;
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 12px;
+            color: var(--color-text-tertiary);
+            font-size: 11px;
             font-style: italic;
             line-height: 1.4;
         }
 
 
 
-        /* Toggle Button - Modern Design */
+        /* Modern Toggle Button */
         .sidebar-toggle-btn {
             width: 100%;
-            padding: 10px 16px;
-            background: rgba(255, 255, 255, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-            color: rgba(255, 255, 255, 0.9);
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: var(--alpha-white-10);
+            border: 1px solid var(--color-border-primary);
+            border-radius: var(--radius-full);
+            color: var(--color-text-primary);
             font-weight: 600;
-            font-size: 12px;
+            font-size: 11px;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            margin-top: 12px;
-            backdrop-filter: blur(8px);
+            margin-top: var(--spacing-md);
+            backdrop-filter: blur(12px);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.8px;
         }
 
         .sidebar-toggle-btn:hover {
-            background: rgba(255, 255, 255, 0.25);
-            border-color: rgba(255, 255, 255, 0.4);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            background: var(--alpha-white-20);
+            border-color: var(--color-secondary-main);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
         }
 
         .sidebar-toggle-btn:active {
@@ -366,35 +385,35 @@ const injectSidebarStyles = () => {
             }
         }
 
-        /* Enhanced Sidebar Scrollbar Styling */
+        /* Modern Scrollbar Styling */
         .enhanced-sidebar::-webkit-scrollbar {
-            width: 6px;
+            width: 4px;
         }
 
         .enhanced-sidebar::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 3px;
+            background: var(--alpha-white-5);
+            border-radius: var(--radius-sm);
         }
 
         .enhanced-sidebar::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 3px;
+            background: var(--alpha-white-20);
+            border-radius: var(--radius-sm);
             transition: background 0.3s ease;
         }
 
         .enhanced-sidebar::-webkit-scrollbar-thumb:hover {
-            background: rgba(255, 255, 255, 0.4);
+            background: var(--alpha-white-30);
         }
 
         .enhanced-sidebar::-webkit-scrollbar-corner {
             background: transparent;
         }
 
-        /* Animation for cards and items */
+        /* Modern Animations */
         @keyframes slideInUp {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(16px);
             }
             to {
                 opacity: 1;
@@ -405,7 +424,7 @@ const injectSidebarStyles = () => {
         @keyframes fadeInSlide {
             from {
                 opacity: 0;
-                transform: translateX(-10px);
+                transform: translateX(-8px);
             }
             to {
                 opacity: 1;
@@ -413,41 +432,58 @@ const injectSidebarStyles = () => {
             }
         }
 
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.8;
+            }
+        }
+
         .quick-access-card,
         .category-card {
-            animation: slideInUp 0.5s ease forwards;
+            animation: slideInUp 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
         }
 
         .recent-item {
-            animation: fadeInSlide 0.4s ease forwards;
+            animation: fadeInSlide 0.3s ease forwards;
             opacity: 0;
         }
 
-        .quick-access-card:nth-child(2) { animation-delay: 0.1s; }
-        .quick-access-card:nth-child(3) { animation-delay: 0.2s; }
-        .quick-access-card:nth-child(4) { animation-delay: 0.3s; }
+        .quick-access-card:nth-child(2) { animation-delay: 0.05s; }
+        .quick-access-card:nth-child(3) { animation-delay: 0.1s; }
+        .quick-access-card:nth-child(4) { animation-delay: 0.15s; }
 
-        /* Mobile menu button */
+        /* Modern Mobile Menu Button */
         .mobile-menu-btn {
             display: none;
             position: fixed;
-            top: 20px;
-            left: 20px;
+            top: var(--spacing-lg);
+            left: var(--spacing-lg);
             z-index: 1001;
-            background: #667eea;
-            color: white;
+            background: var(--color-secondary-main);
+            color: var(--color-text-primary);
             border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            font-size: 20px;
+            border-radius: var(--radius-full);
+            width: 48px;
+            height: 48px;
+            font-size: 18px;
             cursor: pointer;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-btn:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-xl);
         }
 
         @media (max-width: 768px) {
             .mobile-menu-btn {
-                display: block;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
         }
     `;
