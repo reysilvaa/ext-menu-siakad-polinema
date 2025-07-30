@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "Siakad Polinema Enhancer",
-    "version": "1.0",
+    "version": "1.1",
     "description": "Meningkatkan tampilan dan fungsi Siakad Polinema",
     "icons": {
         "16": "icons/icon16.png",
@@ -22,23 +22,31 @@
     "content_scripts": [
         {
             "matches": [
-                "https://siakad.polinema.ac.id/beranda*"
+                "https://siakad.polinema.ac.id/*"
             ],
             "js": [
-                "content.js"
+                "js/config/color-palette.js",
+                "js/config/app-config.js",
+                "js/utils/dom-helpers.js",
+                "js/data/api-service.js",
+                "js/ui/component-builder.js",
+                "js/ui/sidebar-enhancer.js",
+                "js/ui/navbar-enhancer.js",
+                "js/ui/content-layout-enhancer.js",
+                "js/styles/theme.js",
+                "js/styles/sidebar-theme.js",
+                "js/styles/navbar-theme.js",
+                "js/core/app-initializer.js"
             ],
             "run_at": "document_end"
         }
     ],
     "background": {
-        "service_worker": "background.js",
-        "scripts": [
-            "background.js"
-        ]
+        "service_worker": "background.js"
     },
     "permissions": [
         "storage",
-        "tabs"
+        "tabs"  
     ],
     "host_permissions": [
         "https://siakad.polinema.ac.id/*"
